@@ -21,7 +21,8 @@
 
     export NVM_DIR=~/.nvm
     source $(brew --prefix nvm)/nvm.sh
-    """ > .bash_profile
+    """ > .bash_profile && \
+    bash && source .bash_profile
     ```
 * fish + bash
     ```
