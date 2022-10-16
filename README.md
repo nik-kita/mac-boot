@@ -44,12 +44,13 @@
 ```
 cd && \
 brew uninstall fish && \
+brew uninstall nvm && \
 rm -fr /opt/homebrew/etc/fish && \
 rm -fr .config/fish && \
 rm -fr .nvm && \
 rm -fr bass && rm .bash_profile && \
-brew uninstall nvm && \
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)" && \
 rm .zprofile && \
+rm .bashrc && \
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)" && \
 echo RM COMPLEED
 ```
