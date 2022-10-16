@@ -17,11 +17,11 @@
     ```
     mkdir .nvm && touch .bash_profile && \
     echo """
-    export PATH="/usr/local/bin:$PATH"
+    export PATH="/usr/local/bin:\$PATH"
 
     export NVM_DIR=~/.nvm
     source $(brew --prefix nvm)/nvm.sh
-    """ > .bash_profile && \
+    """ > ~/.bash_profile && \
     bash && source .bash_profile
     ```
 * fish + bash
@@ -34,7 +34,7 @@
     touch ~/.config/fish/functions/nvm.fish && \
     echo """
     function nvm
-    bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
+    bass source ~/.nvm/nvm.sh --no-use ';' nvm \$argv
     end
     """ > ~/.config/fish/functions/nvm.fish
     ```
