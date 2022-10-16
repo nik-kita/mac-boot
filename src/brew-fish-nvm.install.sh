@@ -6,6 +6,9 @@ brew help || needBrew=true
 if [[ $needBrew ]];
 then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    echo '# Set PATH, MANPATH, etc., for Homebrew.' >> /Users/neo-nik/.zprofile
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/neo-nik/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
 else
     echo """
  ______________________________________________________________________
