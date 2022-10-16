@@ -1,4 +1,5 @@
 # min usage:
+## install
 * homebrew
     ```
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -8,12 +9,6 @@
     brew install fish
     
     ```
-    * uninstall:
-        ```
-        brew uninstall fish && \
-        rm -fr /opt/homebrew/etc/fish && \
-        rm -fr .config/fish
-        ```
 * nvm
     ```
     brew install nvm
@@ -42,3 +37,14 @@
     end
     """ > ~/.config/fish/functions/nvm.fish
     ```
+### uninstall
+
+```
+cd && \
+brew uninstall fish && \
+rm -fr /opt/homebrew/etc/fish && \
+rm -fr .config/fish && \
+brew uninstall nvm && \
+rm -fr .nvm && \
+rm -fr bass && rm .bash_profile
+```
