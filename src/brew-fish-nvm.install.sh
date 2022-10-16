@@ -1,3 +1,5 @@
+echo "[ -f ~/.fzf.bash ] && source ~/.fzf.bash" > ~/.bashrc
+
 # Install brew if not already =====================================================================
 brew help || needBrew=true
 
@@ -44,6 +46,42 @@ fi
 # -------------------------------------------------------------------------------------------------
 
 # Install nvm if not already ======================================================================
+nvm -v || needNvm=true
 
 
+if [[ $needNvm ]];
+then
+    mkdir ~/.nvm && touch ~/.bash_profile
+    echo """
+export PATH="/usr/local/bin:\$PATH"
+
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+    """ > ~/.bash_profile
+    brew install nvm
+    cd
+    git clone https://github.com/edc/bass.git
+    cd bass && make install
+    cd
+    touch ~/.config/fish/functions/nvm.fish
+    echo """
+function nvm
+bass source ~/.nvm/nvm.sh --no-use ';' nvm \$argv
+end
+    """ > ~/.config/fish/functions/nvm.fish
+    source ~/.bash_profile
+else
+    echo """
+ ______________________________________________________________________
+/                                                                      \\
+|     nvm is already installed                                         |
+\                                                                      /
+ ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
+       \   ^__^
+        \  (oo)\_______
+           (__)\       )\\
+               ||----w |
+               ||     ||
+    """
+fi
 # -------------------------------------------------------------------------------------------------

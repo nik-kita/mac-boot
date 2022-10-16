@@ -46,7 +46,8 @@ cd && \
 brew uninstall fish && \
 rm -fr /opt/homebrew/etc/fish && \
 rm -fr .config/fish && \
-brew uninstall nvm && \
 rm -fr .nvm && \
-rm -fr bass && rm .bash_profile
+rm -fr bass && rm .bash_profile && \
+brew uninstall nvm && \
+echo RM COMPLEED
 ```
