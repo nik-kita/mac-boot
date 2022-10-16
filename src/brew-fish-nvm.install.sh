@@ -4,8 +4,6 @@ brew help || needBrew=true
 if [[ $needBrew ]];
 then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    echo '# Set PATH, MANPATH, etc., for Homebrew.' >> /Users/neo-nik/.zprofile
-    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/neo-nik/.zprofile
     eval "$(/opt/homebrew/bin/brew shellenv)"
 else
     echo """
@@ -57,9 +55,10 @@ then
     mkdir ~/.nvm && touch ~/.bash_profile
     echo """
 export PATH="/usr/local/bin:\$PATH"
+export PATH=/opt/homebrew/bin:\$PATH
 
 export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+source \$(brew --prefix nvm)/nvm.sh
     """ > ~/.bash_profile
     cd
     git clone https://github.com/edc/bass.git
