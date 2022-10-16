@@ -49,5 +49,7 @@ rm -fr .config/fish && \
 rm -fr .nvm && \
 rm -fr bass && rm .bash_profile && \
 brew uninstall nvm && \
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)" && \
+rm .zprofile && \
 echo RM COMPLEED
 ```

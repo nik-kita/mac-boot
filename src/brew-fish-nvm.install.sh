@@ -1,22 +1,3 @@
-iam=$(echo $(whoami))
-echo """
-    # Setup fzf
-    # ---------
-    if [[ ! "$PATH" == */Users/$iam/.fzf/bin* ]]; then
-    PATH="\${PATH:+\${PATH}:}/Users/$iam/.fzf/bin"
-    fi
-
-    # Auto-completion
-    # ---------------
-    [[ \$- == *i* ]] && source "/Users/$iam/.fzf/shell/completion.bash" 2> /dev/null
-
-    # Key bindings
-    # ------------
-    source "/Users/$iam/.fzf/shell/key-bindings.bash"
-""" > ~/.fzf.bash
-
-echo "[ -f ~/.fzf.bash ] && source ~/.fzf.bash" > ~/.bashrc
-
 # Install brew if not already =====================================================================
 brew help || needBrew=true
 
@@ -71,6 +52,8 @@ nvm -v || needNvm=true
 
 if [[ $needNvm ]];
 then
+    brew install nvm
+
     mkdir ~/.nvm && touch ~/.bash_profile
     echo """
 export PATH="/usr/local/bin:\$PATH"
@@ -78,7 +61,6 @@ export PATH="/usr/local/bin:\$PATH"
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
     """ > ~/.bash_profile
-    brew install nvm
     cd
     git clone https://github.com/edc/bass.git
     cd bass && make install
@@ -89,7 +71,6 @@ function nvm
 bass source ~/.nvm/nvm.sh --no-use ';' nvm \$argv
 end
     """ > ~/.config/fish/functions/nvm.fish
-    source ~/.bash_profile
 else
     echo """
  ______________________________________________________________________
@@ -105,3 +86,27 @@ else
     """
 fi
 # -------------------------------------------------------------------------------------------------
+echo """
+000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+"""
+source .zprofile
+
+iam=$(echo $(whoami))
+echo """
+    # Setup fzf
+    # ---------
+    if [[ ! "$PATH" == */Users/$iam/.fzf/bin* ]]; then
+    PATH="\${PATH:+\${PATH}:}/Users/$iam/.fzf/bin"
+    fi
+
+    # Auto-completion
+    # ---------------
+    [[ \$- == *i* ]] && source "/Users/$iam/.fzf/shell/completion.bash" 2> /dev/null
+
+    # Key bindings
+    # ------------
+    source "/Users/$iam/.fzf/shell/key-bindings.bash"
+""" > ~/.fzf.bash
+
+echo "[ -f ~/.fzf.bash ] && source ~/.fzf.bash" > ~/.bashrc
+source .bash_profile
