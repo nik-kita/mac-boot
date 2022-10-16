@@ -1,3 +1,20 @@
+iam=$(echo $(whoami))
+echo """
+    # Setup fzf
+    # ---------
+    if [[ ! "$PATH" == */Users/$iam/.fzf/bin* ]]; then
+    PATH="\${PATH:+\${PATH}:}/Users/$iam/.fzf/bin"
+    fi
+
+    # Auto-completion
+    # ---------------
+    [[ \$- == *i* ]] && source "/Users/$iam/.fzf/shell/completion.bash" 2> /dev/null
+
+    # Key bindings
+    # ------------
+    source "/Users/$iam/.fzf/shell/key-bindings.bash"
+""" > ~/.fzf.bash
+
 echo "[ -f ~/.fzf.bash ] && source ~/.fzf.bash" > ~/.bashrc
 
 # Install brew if not already =====================================================================
