@@ -15,17 +15,18 @@
     ```
 * nvm + bash
     ```
-    mkdir .nvm && touch .bash_profile && \
+    mkdir ~/.nvm && touch ~/.bash_profile && \
     echo """
     export PATH="/usr/local/bin:\$PATH"
 
     export NVM_DIR=~/.nvm
     source $(brew --prefix nvm)/nvm.sh
     """ > ~/.bash_profile && \
-    bash && source .bash_profile
+    bash && source ~/.bash_profile
     ```
 * fish + bash
     ```
+    cd && \
     git clone https://github.com/edc/bass.git && \
     cd bass && make install && cd
     ```
