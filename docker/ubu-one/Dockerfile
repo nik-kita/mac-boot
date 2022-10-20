@@ -6,14 +6,13 @@ run apt upgrade -y
 run apt install curl -y
 run apt install git -y
 
-run apt install build-essential -y
-run curl https://sh.rustup.rs -sSf | sh -s -- -y
-run . "$HOME/.cargo/env"
+run apt install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen make -y
+
+run git clone https://github.com/neovim/neovim
+run cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
+run cd neovim && make install
 
 run apt install software-properties-common -y
-run add-apt-repository ppa:neovim-ppa/stable -y
+run apt-add-repository ppa:fish-shell/release-3 -y
 run apt update -y
-
-run apt install neovim -y
-run bash -c 'curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh'
-
+run apt install fish -y
