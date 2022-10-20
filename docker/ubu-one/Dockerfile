@@ -16,3 +16,5 @@ run apt install software-properties-common -y
 run apt-add-repository ppa:fish-shell/release-3 -y
 run apt update -y
 run apt install fish -y
+
+run curl https://sh.rustup.rs -sSf | sh -s -- -y
