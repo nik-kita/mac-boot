@@ -32,4 +32,9 @@ run curl https://sh.rustup.rs -sSf | sh -s -- -y
 # -------------------------
 # source "$HOME/.cargo/env"
 # -------------------------
+# then you may undomend next commands:
+# run cargo install ripgrep
+
+
+
 
