@@ -17,6 +17,10 @@ run apt-add-repository ppa:fish-shell/release-3 -y
 run apt update -y
 run apt install fish -y
 
+run apt install locales -y
+run locale-gen en_US.UTF-8
+
+
 # TODO
 # curl -fsSL https://fnm.vercel.app/install | bash
 # or may be 'fish' instead of 'bash'
