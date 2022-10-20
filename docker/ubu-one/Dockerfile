@@ -6,7 +6,7 @@ run apt upgrade -y
 run apt install curl -y
 run apt install git -y
 
-run apt install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen make -y
+run apt install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen make wget -y
 
 run git clone https://github.com/neovim/neovim
 run cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
